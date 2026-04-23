@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalaivani Nishan - SAP ABAP Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: { 50: '#eef2ff', 100: '#e0e7ff', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./tailwind.css">
+</head>
+
+<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-brand-500/30 selection:text-white">
+
+  <!-- ===== HEADER ===== -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-gray-950/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="#home" class="text-xl font-bold tracking-tight text-white hover:text-brand-400 transition-colors">
+        Kalaivani<span class="text-brand-400"> </span>Nishan
+      </a>
+      <button id="nav-toggle" class="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul id="nav-menu" class="hidden lg:flex items-center gap-1 text-sm font-medium">
+        <li><a href="#home" class="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Home</a></li>
+        <li><a href="#about" class="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">About</a></li>
+        <li><a href="#skills" class="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Skills</a></li>
+        <li><a href="#experience" class="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Experience</a></li>
+        <li><a href="#projects" class="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Projects</a></li>
+        <li><a href="#education" class="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Education</a></li>
+        <li><a href="#contact" class="ml-2 px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/5 bg-gray-950/95 backdrop-blur-xl">
+      <ul class="flex flex-col p-4 gap-1 text-sm font-medium">
+        <li><a href="#home" class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Home</a></li>
+        <li><a href="#about" class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">About</a></li>
+        <li><a href="#skills" class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Skills</a></li>
+        <li><a href="#experience" class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Experience</a></li>
+        <li><a href="#projects" class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Projects</a></li>
+        <li><a href="#education" class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Education</a></li>
+        <li><a href="#contact" class="block px-4 py-3 rounded-lg bg-brand-600 text-white text-center hover:bg-brand-700 transition-colors mt-2">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-purple-600/8 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div class="flex-1 text-center lg:text-left order-2 lg:order-1">
+          <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-4">SAP ABAP Developer</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400">Kalaivani</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+            I build modern SAP backend solutions with ABAP, CDS Views, and OData services. Certified in ABAP Cloud with 2.5 years of hands-on experience.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="assets/resume.pdf" target="_blank"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-colors shadow-lg shadow-brand-600/20">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Download CV
+            </a>
+            <a href="https://www.linkedin.com/in/kalaivaninishan/" target="_blank"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-white/10 text-gray-300 font-semibold hover:bg-white/5 hover:text-white transition-colors">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="flex-shrink-0 order-1 lg:order-2">
+          <div class="relative">
+            <div class="absolute -inset-1 bg-gradient-to-br from-brand-500 to-purple-600 rounded-full blur-lg opacity-30"></div>
+            <img src="./profile.jpg" alt="Kalaivani Nishan" class="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full object-cover border-2 border-white/10 shadow-2xl" />
+          </div>
+        </div>
+      </div>
+      <div class="mt-16 flex justify-center lg:justify-start">
+        <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"
+          class="animate-bounce text-gray-500 hover:text-brand-400 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-16 items-start">
+        <div class="flex-1">
+          <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">About Me</p>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">Building SAP solutions<br class="hidden sm:block"> with precision</h2>
+          <p class="text-gray-400 text-lg leading-relaxed mb-8">
+            I'm an SAP ABAP Developer based in Berlin, Deutschland, with 2.5 years of experience in ABAP, CDS Views, OData services, and SAP Fiori Elements. I hold an SAP Certified Associate certification in ABAP Cloud and am passionate about building modern, efficient backend solutions.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div>
+              <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+                Core Expertise
+              </h3>
+              <ul class="text-gray-400 space-y-2 text-sm leading-relaxed">
+                <li>ABAP Reports, Classes &amp; Enhancements</li>
+                <li>Object-Oriented ABAP</li>
+                <li>CDS Views &amp; Data Modeling</li>
+                <li>OData Services &amp; SAP Fiori</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                Languages
+              </h3>
+              <ul class="text-gray-400 space-y-2 text-sm leading-relaxed">
+                <li>English - C1</li>
+                <li>Deutsch - B1</li>
+              </ul>
+              <h3 class="text-white font-semibold mt-5 mb-3 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Certification
+              </h3>
+              <p class="text-gray-400 text-sm">SAP Certified Associate<br>Back-End Developer, ABAP Cloud</p>
+              <a href="https://www.credly.com/badges/e3a6e1d4-981f-4578-a88e-e96bab094283" target="_blank" class="inline-flex items-center gap-1 text-brand-400 text-sm font-medium hover:text-brand-300 transition-colors mt-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                View Credentials
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-96 flex-shrink-0">
+          <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6">
+            <h3 class="text-sm font-semibold text-gray-300 mb-4">Proficiency Overview</h3>
+            <div class="relative h-56">
+              <canvas id="experienceChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-white/5"></div></div>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">Tools &amp; Technologies</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What I work with</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-brand-500/30 hover:bg-gray-900/80 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-brand-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Programming</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">ABAP · Object-Oriented ABAP · ABAP Cloud · CDS Views · SQL</p>
+        </div>
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-purple-500/30 hover:bg-gray-900/80 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-purple-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 21h8M12 17v4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">SAP Platforms</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">SAP S/4HANA · Eclipse ADT · SAP GUI · Git · GitHub</p>
+        </div>
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-pink-500/30 hover:bg-gray-900/80 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-pink-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Frameworks &amp; Approaches</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">RAP · DDIC · Modular Programming · Debugging · Agile / Scrum</p>
+        </div>
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-amber-500/30 hover:bg-gray-900/80 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-amber-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">SAP Development</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Reports · ALV Reporting · CDS Data Modeling · OData Basics · Enhancements</p>
+        </div>
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-teal-500/30 hover:bg-gray-900/80 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-teal-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Integration &amp; UI</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">SAP Fiori Basics · SAP UI5 Basics · Backend Development</p>
+        </div>
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-orange-500/30 hover:bg-gray-900/80 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-orange-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Version Control</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Git &amp; GitHub for source code management and collaboration</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-white/5"></div></div>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">Experience</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Professional Background</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="relative pl-8 border-l-2 border-white/10">
+          <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-gray-950"></div>
+          <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6 mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+              <div class="flex items-center gap-3">
+                <img src="logos/sap.png" alt="RedCloud Logo" class="w-8 h-8 object-contain rounded">
+                <h3 class="text-white font-semibold text-lg">RedCloud Soft Solutions Pvt. Ltd.</h3>
+              </div>
+              <span class="text-sm text-gray-500 font-medium">Sep 2022 - Nov 2024</span>
+            </div>
+            <p class="text-brand-400 font-medium text-sm mb-4">SAP ABAP Developer</p>
+            <ul class="text-gray-400 text-sm space-y-2.5 leading-relaxed">
+              <li class="flex gap-2"><span class="text-brand-400 mt-0.5 flex-shrink-0">•</span>Developed ABAP reports, classes, and enhancements for SAP business processes</li>
+              <li class="flex gap-2"><span class="text-brand-400 mt-0.5 flex-shrink-0">•</span>Worked with Object-Oriented ABAP and CDS Views to build backend solutions</li>
+              <li class="flex gap-2"><span class="text-brand-400 mt-0.5 flex-shrink-0">•</span>Supported debugging, defect analysis, and technical troubleshooting</li>
+              <li class="flex gap-2"><span class="text-brand-400 mt-0.5 flex-shrink-0">•</span>Participated in requirement discussions and implementation of SAP changes</li>
+              <li class="flex gap-2"><span class="text-brand-400 mt-0.5 flex-shrink-0">•</span>Collaborated with teams to ensure timely delivery of technical solutions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-white/5"></div></div>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">Education</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Academic Background</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-brand-500/20 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-600/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold">M.Tech Biotechnology</h3>
+              <p class="text-gray-500 text-sm">07/2019 - 06/2021</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">SVCE, Anna University, India</p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/10 text-brand-400 text-xs font-semibold">CGPA: 9.068</div>
+        </div>
+        <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-purple-500/20 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-purple-600/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold">B.Tech Genetic Engineering</h3>
+              <p class="text-gray-500 text-sm">07/2015 - 05/2019</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">SRM Institute of Science and Technology, India</p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-600/10 text-purple-400 text-xs font-semibold">CGPA: 7.08</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-white/5"></div></div>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">Projects</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Things I've built</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-brand-500/30 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-brand-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2">Project 1</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Project description coming soon. Details about purpose, technologies used, and key features.</p>
+          <a href="#" class="inline-flex items-center text-brand-400 text-sm font-medium hover:text-brand-300 transition-colors group-hover:gap-2 gap-1">
+            View Project
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="group bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-purple-500/30 transition-all duration-300">
+          <div class="w-10 h-10 rounded-lg bg-purple-600/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2">Project 2</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Project description coming soon. Details about purpose, technologies used, and key features.</p>
+          <a href="#" class="inline-flex items-center text-purple-400 text-sm font-medium hover:text-purple-300 transition-colors group-hover:gap-2 gap-1">
+            View Project
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-white/5"></div></div>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">Education</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Academic Background</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-brand-500/20 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-600/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold">M.Tech Biotechnology</h3>
+              <p class="text-gray-500 text-sm">07/2019 - 06/2021</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">SVCE, Anna University, India</p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/10 text-brand-400 text-xs font-semibold">CGPA: 9.068</div>
+        </div>
+        <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6 hover:border-purple-500/20 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-purple-600/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold">B.Tech Genetic Engineering</h3>
+              <p class="text-gray-500 text-sm">07/2015 - 05/2019</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">SRM Institute of Science and Technology, India</p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-600/10 text-purple-400 text-xs font-semibold">CGPA: 7.08</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-white/5"></div></div>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-400 font-semibold text-sm tracking-widest uppercase mb-3">Contact</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Get in Touch</h2>
+        <p class="text-gray-400 mt-4 max-w-lg mx-auto">Have a question or want to work together? Feel free to reach out.</p>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6">
+            <h3 class="text-white font-semibold mb-4">Contact Information</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <p class="text-gray-500 text-xs uppercase tracking-wider mb-0.5">Email</p>
+                  <a href="mailto:kalaivaninishan@gmail.com" class="text-gray-300 text-sm hover:text-brand-400 transition-colors">kalaivaninishan@gmail.com</a>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <p class="text-gray-500 text-xs uppercase tracking-wider mb-0.5">Location</p>
+                  <p class="text-gray-300 text-sm">Berlin, Deutschland</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-gray-900/50 border border-white/5 rounded-2xl p-6">
+            <h3 class="text-white font-semibold mb-4">Connect</h3>
+            <div class="flex gap-3">
+              <a href="https://www.linkedin.com/in/kalaivaninishan/" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:text-brand-400 hover:bg-brand-600/10 transition-colors" title="LinkedIn">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://github.com/kalaivaninishan" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:text-brand-400 hover:bg-brand-600/10 transition-colors" title="GitHub">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="mailto:kalaivaninishan@gmail.com" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:text-brand-400 hover:bg-brand-600/10 transition-colors" title="Email">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-gray-500 text-sm">&copy; 2025 Kalaivani Nishan. All rights reserved.</p>
+      <a href="#home" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
