@@ -1,3 +1,29 @@
+// Download CV as file instead of opening in browser
+document.addEventListener('DOMContentLoaded', function () {
+  const downloadBtn = document.getElementById('download-cv');
+  if (downloadBtn && window.location.protocol.startsWith('http')) {
+    downloadBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      fetch(this.href)
+        .then(function (res) { return res.blob(); })
+        .then(function (blob) {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'kalaivani-resume.pdf';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        })
+        .catch(function () {
+          // Fallback: let browser handle natively
+          window.open(downloadBtn.href);
+        });
+    });
+  }
+});
+
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
   const navToggle = document.getElementById('nav-toggle');
